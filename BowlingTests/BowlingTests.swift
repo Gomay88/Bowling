@@ -22,19 +22,37 @@ class BowlingTests: XCTestCase {
     }
 
     func testEmptyGame() {
-        for _ in 1...20 {
-            game.frame(pins: 0)
-        }
-        
-        XCTAssertTrue(game.score == 0, "Worst game ever")
+        gameFrames(pins: 0, frames: 20)
+        XCTAssertTrue(game.score() == 0, "Worst game ever")
     }
 
-     func testNoSparesNoStrikesGame() {
-           for _ in 1...20 {
-               game.frame(pins: 2)
-           }
-           
-           XCTAssertTrue(game.score == 40, "Learning how to play")
-       }
-
+    func testNoSparesNoStrikesGame() {
+        gameFrames(pins: 2, frames: 20)
+        XCTAssertTrue(game.score() == 40, "Learning how to play")
+    }
+    
+    func testSpareGame() {
+        //First throws 7
+        game.frame(pins: 1)
+        game.frame(pins: 6)
+        
+        //Spare throw 10 + 3
+        game.frame(pins: 6)
+        game.frame(pins: 4)
+        
+        //Next throw 5
+        game.frame(pins: 3)
+        game.frame(pins: 2)
+        
+        //Rest of the game 42
+        gameFrames(pins: 3, frames: 14)
+        
+        XCTAssertEqual(game.score(), 67)
+    }
+    
+    private func gameFrames(pins: Int, frames: Int) {
+        for _ in 1...frames {
+            game.frame(pins: pins)
+        }
+    }
 }

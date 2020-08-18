@@ -11,29 +11,42 @@ import Foundation
 class GamePresenter {
     
     private var gameThrows = [Int]()
-    private var gameScore = 0
+    private var gameScore: Int = 0
     
     func frame(pins: Int) {
-        gameThrows.append(pins)
+        if gameThrows.count < 21 {
+            gameThrows.append(pins)
+        }
     }
     
     func score() -> Int {
-        var spareExtraScore = 0
-        
-        for (key, value) in gameThrows.enumerated() {
-            if key <= gameThrows.count - 2 {
-                if spare(pin1: gameThrows[key], pin2: gameThrows[key+1]) {
-                    spareExtraScore = gameThrows[key+2]
-                }
-            }
-            
-            gameScore += value
+        while gameThrows.count < 21 {
+            gameThrows.append(0)
         }
         
-        return gameScore + spareExtraScore
+        var extraScore = 0
+        var gameThrow = 0
+        
+        for _ in 1...9 {
+            if strike(pin1: gameThrows[gameThrow]) {
+                extraScore += gameThrows[gameThrow+1] + gameThrows[gameThrow+2]
+                gameThrow += 1
+            } else if spare(pin1: gameThrows[gameThrow], pin2: gameThrows[gameThrow+1]) {
+                extraScore += gameThrows[gameThrow+2]
+                gameThrow += 2
+            } else {
+                gameThrow += 2
+            }
+        }
+        
+        return gameThrows.reduce(0, +) + extraScore
     }
     
     private func spare(pin1: Int, pin2: Int) -> Bool {
         return pin1 + pin2 == 10 ? true : false
+    }
+    
+    private func strike(pin1: Int) -> Bool {
+        return pin1 == 10 ? true : false
     }
 }

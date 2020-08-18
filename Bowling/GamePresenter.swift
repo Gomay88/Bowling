@@ -13,6 +13,6 @@ class GamePresenter {
     var score = 0
     
     func frame(pins: Int) {
-        
+        score += pins
     }
 }

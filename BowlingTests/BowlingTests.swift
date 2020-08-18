@@ -29,11 +29,12 @@ class BowlingTests: XCTestCase {
         XCTAssertTrue(game.score == 0, "Worst game ever")
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+     func testNoSparesNoStrikesGame() {
+           for _ in 1...20 {
+               game.frame(pins: 2)
+           }
+           
+           XCTAssertTrue(game.score == 40, "Learning how to play")
+       }
 
 }

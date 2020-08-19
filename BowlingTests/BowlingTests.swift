@@ -95,6 +95,11 @@ class BowlingTests: XCTestCase {
         XCTAssertEqual(game.score(), 127)
     }
     
+    func testAllSpares() {
+        gameFrames(pins: 5, frames: 21)
+        XCTAssertEqual(game.score(), 150)
+    }
+    
     private func gameFrames(pins: Int, frames: Int) {
         for _ in 1...frames {
             game.frame(pins: pins)

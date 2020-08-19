@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		C335A7A124EC1C7500136ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7A024EC1C7500136ECF /* AppDelegate.swift */; };
 		C335A7A324EC1C7500136ECF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7A224EC1C7500136ECF /* SceneDelegate.swift */; };
-		C335A7A524EC1C7500136ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7A424EC1C7500136ECF /* ViewController.swift */; };
+		C335A7A524EC1C7500136ECF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7A424EC1C7500136ECF /* GameViewController.swift */; };
 		C335A7A824EC1C7500136ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C335A7A624EC1C7500136ECF /* Main.storyboard */; };
 		C335A7AA24EC1C7600136ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C335A7A924EC1C7600136ECF /* Assets.xcassets */; };
 		C335A7AD24EC1C7600136ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C335A7AB24EC1C7600136ECF /* LaunchScreen.storyboard */; };
 		C335A7B824EC1C7600136ECF /* BowlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7B724EC1C7600136ECF /* BowlingTests.swift */; };
 		C335A7C324EC1C7600136ECF /* BowlingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7C224EC1C7600136ECF /* BowlingUITests.swift */; };
 		C335A7D124EC296900136ECF /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7D024EC296900136ECF /* GamePresenter.swift */; };
-		C335A7D224EC296900136ECF /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C335A7D024EC296900136ECF /* GamePresenter.swift */; };
+		C3D4517B24ED3E1000DF8265 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4517A24ED3E1000DF8265 /* GameCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,7 @@
 		C335A79D24EC1C7500136ECF /* Bowling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C335A7A024EC1C7500136ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C335A7A224EC1C7500136ECF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C335A7A424EC1C7500136ECF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C335A7A424EC1C7500136ECF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C335A7A724EC1C7500136ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C335A7A924EC1C7600136ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C335A7AC24EC1C7600136ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +52,7 @@
 		C335A7C224EC1C7600136ECF /* BowlingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingUITests.swift; sourceTree = "<group>"; };
 		C335A7C424EC1C7600136ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C335A7D024EC296900136ECF /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		C3D4517A24ED3E1000DF8265 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +105,7 @@
 			children = (
 				C335A7A024EC1C7500136ECF /* AppDelegate.swift */,
 				C335A7A224EC1C7500136ECF /* SceneDelegate.swift */,
-				C335A7A424EC1C7500136ECF /* ViewController.swift */,
-				C335A7D024EC296900136ECF /* GamePresenter.swift */,
+				C3D4517824ED3DEA00DF8265 /* Game */,
 				C335A7A624EC1C7500136ECF /* Main.storyboard */,
 				C335A7A924EC1C7600136ECF /* Assets.xcassets */,
 				C335A7AB24EC1C7600136ECF /* LaunchScreen.storyboard */,
@@ -130,6 +130,24 @@
 				C335A7C424EC1C7600136ECF /* Info.plist */,
 			);
 			path = BowlingUITests;
+			sourceTree = "<group>";
+		};
+		C3D4517824ED3DEA00DF8265 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4517924ED3DF700DF8265 /* Cell */,
+				C335A7A424EC1C7500136ECF /* GameViewController.swift */,
+				C335A7D024EC296900136ECF /* GamePresenter.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		C3D4517924ED3DF700DF8265 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4517A24ED3E1000DF8265 /* GameCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +282,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C335A7D124EC296900136ECF /* GamePresenter.swift in Sources */,
-				C335A7A524EC1C7500136ECF /* ViewController.swift in Sources */,
+				C3D4517B24ED3E1000DF8265 /* GameCollectionViewCell.swift in Sources */,
+				C335A7A524EC1C7500136ECF /* GameViewController.swift in Sources */,
 				C335A7A124EC1C7500136ECF /* AppDelegate.swift in Sources */,
 				C335A7A324EC1C7500136ECF /* SceneDelegate.swift in Sources */,
 			);
@@ -274,7 +293,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C335A7D224EC296900136ECF /* GamePresenter.swift in Sources */,
 				C335A7B824EC1C7600136ECF /* BowlingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

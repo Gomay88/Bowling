@@ -18,7 +18,11 @@ class GameCollectionViewCell: UICollectionViewCell {
             firstThrow.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         }
     }
-    @IBOutlet weak var secondThrow: UITextField!
+    @IBOutlet weak var secondThrow: UITextField! {
+        didSet {
+            firstThrow.keyboardType = .numberPad
+        }
+    }
     var thridThrow: UITextField?
     
     override func prepareForReuse() {

@@ -34,17 +34,17 @@ class GameViewController: UIViewController {
                 return
             }
             
-            guard let firstThrow = Int(cell.firstThrow.text ?? "") else {
-                return
-            }
-            
-            guard let secondThrow = Int(cell.secondThrow.text ?? "") else {
+            if let firstThrow = Int(cell.firstThrow.text ?? "") {
                 presenter.frame(pins: firstThrow)
-                continue
             }
             
-            presenter.frame(pins: firstThrow)
-            presenter.frame(pins: secondThrow)
+            if let secondThrow = Int(cell.secondThrow.text ?? "") {
+                presenter.frame(pins: secondThrow)
+            }
+            
+            if let thridThrow = Int(cell.thridThrow?.text ?? "") {
+                presenter.frame(pins: thridThrow)
+            }
         }
         
         gameResultLabel.text = "\(presenter.score())"
@@ -60,6 +60,9 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
         cell.identifierLabel.text = "\(indexPath.row+1)"
+        if indexPath.row == 9 {
+            cell.addExtraSpace()
+        }
         
         return cell
     }

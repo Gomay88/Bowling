@@ -70,6 +70,7 @@
                                             <outlet property="firstThrow" destination="Q1x-5v-SGl" id="aR1-RX-E8b"/>
                                             <outlet property="identifierLabel" destination="d6w-EE-fPN" id="6NL-HI-D5d"/>
                                             <outlet property="secondThrow" destination="CQ1-9Y-LPf" id="JGu-cq-fon"/>
+                                            <outlet property="stackView" destination="Vd7-w8-wdS" id="4zO-HV-S8L"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

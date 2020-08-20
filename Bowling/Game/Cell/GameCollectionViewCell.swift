@@ -11,6 +11,7 @@ import UIKit
 class GameCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var identifierLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var firstThrow: UITextField! {
         didSet {
             firstThrow.keyboardType = .numberPad
@@ -18,6 +19,7 @@ class GameCollectionViewCell: UICollectionViewCell {
         }
     }
     @IBOutlet weak var secondThrow: UITextField!
+    var thridThrow: UITextField?
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -28,12 +30,18 @@ class GameCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if textField.text == "10" {
+        if textField.text == "10" && identifierLabel.text != "10" {
             textField.backgroundColor = .red
             secondThrow.isHidden = true
         } else {
             textField.backgroundColor = .white
             secondThrow.isHidden = false
         }
+    }
+    
+    func addExtraSpace() {
+        thridThrow = UITextField()
+        thridThrow?.borderStyle = .roundedRect
+        stackView.addArrangedSubview(thridThrow!)
     }
 }
